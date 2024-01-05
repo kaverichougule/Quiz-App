@@ -25,16 +25,16 @@ function SingleQuestion(props) {
         <div>
             <h2>Question {props.quesNo}</h2>
             <p>{props.question}</p>
-            <ul>
+            <div className='optionsDiv'>
                 {
                     options.map((ele)=>{
-                        return <li disable={props.disable} style={{color:props.color}} className='singleOption' onClick={getOptionClicked} >
+                        return <button disabled={props.disable} style={{color:props.color}} className='singleOption' onClick={getOptionClicked} >
                             {ele}
-                        </li>
+                        </button>
                     })
                     
                 }
-            </ul>
+            </div>
         </div>
     );
 }

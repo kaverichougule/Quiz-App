@@ -31,19 +31,19 @@ function Body(props) {
     },[])
     useEffect(()=>{
         if(timer==0){
-            setDisable(false)
+            setDisable(true)
             setDisablecolor("gray")
         }
         else{
-            setDisable(true)
+            setDisable(false)
             setDisablecolor("black")
         }
     })
     return (
-        <div>
+        <div className='bodySection'>
         {
             (quesNo<10)?
-                <div>
+                <div className='section1'>
                     {
                         data.map((ele,index)=>{
                             if(index===quesNo-1){
@@ -51,16 +51,18 @@ function Body(props) {
                             }
                         })
                         
-                    }
-                    
+                    }    
                     <button onClick={()=>{
                         if(quesNo<10){
                             setQuesNo(quesNo+1)
                         }
                         setTimer(10);
-                    }}>Skip</button>
+                    }} className='SkipBtn'>Skip</button>
 
-                    <p>Time Left: {timer}</p>
+                    <p className='Timer'>
+                        <i class="fa-regular fa-clock"></i>
+                        Time Left: {timer}
+                    </p>
                 </div>: 
                 <div>
                     Quiz Ended
